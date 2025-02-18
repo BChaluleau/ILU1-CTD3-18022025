@@ -1,10 +1,12 @@
 package bibliotheque;
 
+import java.util.Arrays;
+
 public class Bibliotheque {
 
 	private int nbOuvrages = 0;
-	private int nbOuvragesMax;
-	private Ouvrage[] ouvrages;
+	private int nbOuvragesMax; // injecté par constructeur
+	private Ouvrage[] ouvrages; // instancié dans le constructeur
 
 	public Bibliotheque(int nbOuvragesMax) {
 		this.nbOuvragesMax = nbOuvragesMax;
@@ -19,8 +21,16 @@ public class Bibliotheque {
 		return nbOuvragesMax;
 	}
 
-	public Ouvrage[] getOuvrages() {
-		return ouvrages;
+	@Override
+	public String toString() {
+		return "Bibliotheque [nbOuvrages=" + nbOuvrages + ", ouvrages=" + Arrays.toString(ouvrages) + "]";
+	}
+
+	public void ajouterOuvrage(Ouvrage ouvrage) {
+		if (nbOuvrages < nbOuvragesMax) {
+			ouvrages[nbOuvrages] = ouvrage;
+			nbOuvrages++;
+		}
 	}
 
 }

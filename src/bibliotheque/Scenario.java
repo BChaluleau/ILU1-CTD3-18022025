@@ -5,11 +5,14 @@ public class Scenario {
 	public static void main(String[] args) {
 
 		Bibliotheque petiteBibliotheque = new Bibliotheque(10);
-		Bibliotheque grandeBibliotheque = new Bibliotheque(5000);
 
-		Ouvrage ouvrage1 = new Ouvrage("LeTitre", "UnAuteur", "UnEditeur", 2025, "ISBN_12_34");
+		Ouvrage ouvrage = new Ouvrage("LeTitre", "UnAuteur", "UnEditeur", 2025, "ISBN_12_34");
 
-		Exemplaire exemplaire1 = new Exemplaire();
+		Exemplaire exemplaire = new Exemplaire("COTE_1", true, false);
+
+		ouvrage.ajouterExemplaire(exemplaire);
+		petiteBibliotheque.ajouterOuvrage(ouvrage);
+		System.out.println(petiteBibliotheque);
 
 		System.out.println("...Fin...");
 	}

@@ -1,5 +1,7 @@
 package bibliotheque;
 
+import java.util.Arrays;
+
 public class Ouvrage {
 
 	private static int NB_MAX_EXEMPLAIRES = 100; // equivalent au #define
@@ -48,6 +50,18 @@ public class Ouvrage {
 
 	public Exemplaire[] getExemplaires() {
 		return exemplaires;
+	}
+
+	@Override
+	public String toString() {
+		return "Ouvrage [titre=" + titre + ", exemplaires=" + Arrays.toString(exemplaires) + "]";
+	}
+
+	public void ajouterExemplaire(Exemplaire exemplaire) {
+		if (nbExemplaires < NB_MAX_EXEMPLAIRES) {
+			exemplaires[nbExemplaires] = exemplaire;
+			nbExemplaires++;
+		}
 	}
 
 }
