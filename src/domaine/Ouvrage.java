@@ -1,10 +1,10 @@
-package bibliotheque;
+package domaine;
 
 import java.util.Arrays;
 
 public class Ouvrage {
 
-	private static int NB_MAX_EXEMPLAIRES = 100; // equivalent au #define
+	private static int NB_MAX_EXEMPLAIRES = 3; // equivalent au #define
 
 	private String titre;
 	private String auteur;
@@ -15,7 +15,7 @@ public class Ouvrage {
 	private int nbExemplaires = 0;
 	private Exemplaire[] exemplaires;
 
-	public Ouvrage(String titre, String auteur, String editeur, int annee, String iSBN) {
+	protected Ouvrage(String titre, String auteur, String editeur, int annee, String iSBN) {
 		this.titre = titre;
 		this.auteur = auteur;
 		this.editeur = editeur;
@@ -57,11 +57,17 @@ public class Ouvrage {
 		return "Ouvrage [titre=" + titre + ", exemplaires=" + Arrays.toString(exemplaires) + "]";
 	}
 
-	public void ajouterExemplaire(Exemplaire exemplaire) {
+	private void ajouterExemplaire(Exemplaire exemplaire) {
 		if (nbExemplaires < NB_MAX_EXEMPLAIRES) {
 			exemplaires[nbExemplaires] = exemplaire;
 			nbExemplaires++;
 		}
+	}
+
+	public Exemplaire ajouterExemplaire(String cote, boolean disponible, boolean enLigne) {
+		Exemplaire nouveau = new Exemplaire(cote, disponible, enLigne);
+		ajouterExemplaire(nouveau);
+		return nouveau;
 	}
 
 }

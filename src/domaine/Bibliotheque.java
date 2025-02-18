@@ -1,4 +1,4 @@
-package bibliotheque;
+package domaine;
 
 import java.util.Arrays;
 
@@ -26,11 +26,17 @@ public class Bibliotheque {
 		return "Bibliotheque [nbOuvrages=" + nbOuvrages + ", ouvrages=" + Arrays.toString(ouvrages) + "]";
 	}
 
-	public void ajouterOuvrage(Ouvrage ouvrage) {
+	private void ajouterOuvrage(Ouvrage ouvrage) {
 		if (nbOuvrages < nbOuvragesMax) {
 			ouvrages[nbOuvrages] = ouvrage;
 			nbOuvrages++;
 		}
+	}
+
+	public Ouvrage ajouterOuvrage(String titre, String auteur, String editeur, int annee, String iSBN) {
+		Ouvrage nouvelOuvrage = new Ouvrage(titre, auteur, editeur, annee, iSBN);
+		ajouterOuvrage(nouvelOuvrage);
+		return nouvelOuvrage;
 	}
 
 }

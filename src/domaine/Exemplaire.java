@@ -1,4 +1,4 @@
-package bibliotheque;
+package domaine;
 
 public class Exemplaire {
 
@@ -7,7 +7,7 @@ public class Exemplaire {
 	private boolean disponible;
 	private boolean enLigne;
 
-	public Exemplaire(String cote, boolean disponible, boolean enLigne) {
+	protected Exemplaire(String cote, boolean disponible, boolean enLigne) {
 		// precondition
 		assert disponible != enLigne; // asserts à activer en ajoutant -ea (enable assertions) à la ligne de run
 		this.cote = cote;
