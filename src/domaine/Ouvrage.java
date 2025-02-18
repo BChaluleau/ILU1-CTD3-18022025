@@ -11,16 +11,18 @@ public class Ouvrage {
 	private String editeur;
 	private int annee;
 	private String iSBN;
+	private Genre genre;
 
 	private int nbExemplaires = 0;
 	private Exemplaire[] exemplaires;
 
-	protected Ouvrage(String titre, String auteur, String editeur, int annee, String iSBN) {
+	protected Ouvrage(String titre, Genre genre, String auteur, String editeur, int annee, String iSBN) {
 		this.titre = titre;
 		this.auteur = auteur;
 		this.editeur = editeur;
 		this.annee = annee;
 		this.iSBN = iSBN;
+		this.genre = genre;
 		exemplaires = new Exemplaire[NB_MAX_EXEMPLAIRES];
 	}
 
@@ -54,7 +56,7 @@ public class Ouvrage {
 
 	@Override
 	public String toString() {
-		return "Ouvrage [titre=" + titre + ", exemplaires=" + Arrays.toString(exemplaires) + "]";
+		return "Ouvrage [titre=" + titre + ", genre:" + genre + " exemplaires=" + Arrays.toString(exemplaires) + "]";
 	}
 
 	private void ajouterExemplaire(Exemplaire exemplaire) {

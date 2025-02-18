@@ -1,6 +1,7 @@
 package application;
 
 import domaine.Bibliotheque;
+import domaine.Genre;
 import domaine.Ouvrage;
 
 public class Scenario {
@@ -9,7 +10,8 @@ public class Scenario {
 
 		Bibliotheque petiteBibliotheque = new Bibliotheque(10);
 
-		Ouvrage ouvrage = petiteBibliotheque.ajouterOuvrage("LeTitre", "UnAuteur", "UnEditeur", 2025, "ISBN_12_34");
+		Ouvrage ouvrage = petiteBibliotheque.ajouterOuvrage("LeTitre", Genre.S, "UnAuteur", "UnEditeur", 2025,
+				"ISBN_12_34");
 		ouvrage.ajouterExemplaire("COTE_1", true, false);
 		ouvrage.ajouterExemplaire("COTE_2", true, false);
 		ouvrage.ajouterExemplaire("COTE_3", true, false);
